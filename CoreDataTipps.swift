@@ -4,8 +4,12 @@ var savedata1 = UserDefaults.standard
 //toLoad
 let contact_us = savedata1.string(forKey: "contact_us") ?? ""
 
+
 //ToSave
 UserDefaults.standard.set(self.contact_us, forKey: "contact_us")
+// or use this func to add value
+AddCompanyAsContact()
+
 
 //example : https://github.com/Shashikant86/CoreDataDemo/blob/master/CoreDataDemo/ViewController.swift
 
@@ -44,4 +48,28 @@ func checkContact(userName:String) -> Bool {
                 }
     
     return exists
+    }
+
+//add value to core data
+func AddCompanyAsContact() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Contacts", in: context)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+
+        newUser.setValue("0" , forKey: "id") // dont have
+        newUser.setValue(group_x , forKey: "username")
+        newUser.setValue("Group" , forKey: "fullname")
+        
+        newUser.setValue("0_.png" , forKey: "img")
+        newUser.setValue(NSDate() as Date , forKey: "date")
+        
+        do {
+            try context.save()
+            print("seccessfuly saved -----")
+        } catch {
+            print("Failed saving xxxxxx")
+        }
+        
     }
