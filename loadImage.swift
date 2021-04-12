@@ -55,6 +55,10 @@ override func viewDidLoad() {
                 self.present(alert, animated: true, completion: nil)
                 alert.setValue(titleAttrString, forKey: "attributedMessage")
                 alert.setValue(msgAttrString, forKey: "attributedMessage")
+        
+               alert.view.tintColor = UIColor.black
+               alert.view.backgroundColor = UIColor.blue
+               alert.view.layer.cornerRadius = 40
     }         
         
 }
