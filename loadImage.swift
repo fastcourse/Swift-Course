@@ -35,9 +35,9 @@ override func viewDidLoad() {
                 image = UIImage(data: data)
         }    
         let msgFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 22.0)!]
-       // let titleFont = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 22.0)!]
+        let titleFont = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 22.0)!]
         let msgAttrString = NSMutableAttributedString(string: alert_msg, attributes: msgFont)
-        let titleAttrString = NSMutableAttributedString(string: title1, attributes: msgFont)
+        let titleAttrString = NSMutableAttributedString(string: title1, attributes: titleFont)
         let alertViewPadding: CGFloat = 65.0 //Adjust this as per your need
                 let left = -alert.view.frame.size.width / 2 + image!.size.width/2 + 20
                // let left = alert.view.frame.size.width/2 - image!.size.width/2
