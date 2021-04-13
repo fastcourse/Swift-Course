@@ -39,7 +39,7 @@ override func viewDidLoad() {
          
     }  
               
-  //load img into alert
+  //action sheet as alert :load img into alert
     func Show_nafida_for_msgs(x: Int){
         let title1 = "Message!"
         let alert_msg = "text text text text text text text text text text text text text text text " +
@@ -82,5 +82,59 @@ override func viewDidLoad() {
     } 
         func VC_AS_Alert(){
             //cpc8136
+            
+        }
+
+//this is normal alert , format msg and title, but without image. at the end we can close alert after afew swconds
+func Show_nafida_for_msgs(x: Int){
+    let title1 = "Message !"
+    let alert_msg = self.my_last_text_msg_private_text
+    let alertController = UIAlertController(
+        title: title1,
+        message: alert_msg,
+        preferredStyle: UIAlertControllerStyle.alert
+    )
+
+    let cancelAction = UIAlertAction(
+        title: "Cancel",
+        style: UIAlertActionStyle.destructive) { (action) in
+        // ...
+    }
+
+    let confirmAction = UIAlertAction(
+        title: "OK", style: UIAlertActionStyle.default) { (action) in
+        // ...
+    }
+        
+        let msgFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 22.0)!]//Menlo-Regular,Symbol,Verdana,Courier,Optima-Regular,Avenir-Roman,
+        let titleFont = [NSAttributedStringKey.font: UIFont(name: "Arial-BoldMT", size: 22.0)!]//Menlo-Bold,Verdana-Bold,Courier-Bold,Optima-Bold,
+        let msgAttrString = NSMutableAttributedString(string: alert_msg, attributes: msgFont)
+        let titleAttrString = NSMutableAttributedString(string: title1, attributes: titleFont)
+
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+        alertController.setValue(titleAttrString, forKey: "attributedTitle")
+        alertController.setValue(msgAttrString, forKey: "attributedMessage")
+
+        alertController.view.tintColor = UIColor.black
+        alertController.view.backgroundColor = UIColor.blue
+        alertController.view.layer.cornerRadius = 40
+        
+        // change to desired number of seconds (in this case 10 seconds)
+        let when = DispatchTime.now() + 10
+        DispatchQueue.main.asyncAfter(deadline: when){
+          // your code with delay
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        
+        
+    }
+        
+        
+        
+        
         
 }
