@@ -59,6 +59,8 @@ override func viewDidLoad() {
                alert.view.tintColor = UIColor.black
                alert.view.backgroundColor = UIColor.blue
                alert.view.layer.cornerRadius = 40
-    }         
+    } 
+        func VC_AS_Alert(){
+            //cpc8136
         
 }
