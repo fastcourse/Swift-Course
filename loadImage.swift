@@ -165,8 +165,9 @@ func Show_nafida_for_msgs(x: Int){
                 image = UIImage(data: data)
 
         }
-        let left = -alertController.view.frame.size.width / 2 + image!.size.width/2 + 20
-        let centeredTopoImage = image?.withAlignmentRectInsets(UIEdgeInsetsMake(0, left, 0, 0)).withRenderingMode(.alwaysOriginal)
+        let left = -alertController.view.frame.size.width / 2 + image!.size.width/2
+       // let centeredTopoImage = image?.withAlignmentRectInsets(UIEdgeInsetsMake(0, left, 0, 0)).withRenderingMode(.alwaysOriginal)//top,left, buttom, right
+        let centeredTopoImage = image?.withAlignmentRectInsets(UIEdgeInsetsMake(0, 0, 0, 0)).withRenderingMode(.alwaysOriginal)//top,left, buttom, right
         imageAction.setValue(centeredTopoImage, forKey: "image")
         
         let msgFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 22.0)!]//Menlo-Regular,Symbol,Verdana,Courier,Optima-Regular,Avenir-Roman,
@@ -196,7 +197,6 @@ func Show_nafida_for_msgs(x: Int){
         
         
     }
-        
         
         
         
