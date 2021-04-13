@@ -133,6 +133,70 @@ func Show_nafida_for_msgs(x: Int){
         
     }
         
+//this is normal alert wit image
+    func Show_nafida_for_msgs(x: Int){
+    let title1 = "Message !"
+    let alert_msg = self.my_last_text_msg_private_text
+    let alertController = UIAlertController(
+        title: title1,
+        message: alert_msg,
+        preferredStyle: UIAlertControllerStyle.alert
+    )
+
+    let cancelAction = UIAlertAction(
+        title: "Cancel",
+        style: UIAlertActionStyle.destructive) { (action) in
+        // ...
+    }
+
+    let confirmAction = UIAlertAction(
+        title: "OK", style: UIAlertActionStyle.default) { (action) in
+        // ...
+    }
+        
+        let  imageAction = UIAlertAction(title: "", style: .destructive, handler: { (action) -> Void in
+          print("img clicked")
+        })
+        var image = UIImage(named: "de_48")//just initi
+        let sender_img_path = self.contact_us+"siaha/msg_pictures/\(my_last_text_msg_private_img)"
+        let url = URL(string: sender_img_path)!
+            // Fetch Image Data
+            if let data = try? Data(contentsOf: url) {
+                image = UIImage(data: data)
+
+        }
+        let left = -alertController.view.frame.size.width / 2 + image!.size.width/2 + 20
+        let centeredTopoImage = image?.withAlignmentRectInsets(UIEdgeInsetsMake(0, left, 0, 0)).withRenderingMode(.alwaysOriginal)
+        imageAction.setValue(centeredTopoImage, forKey: "image")
+        
+        let msgFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 22.0)!]//Menlo-Regular,Symbol,Verdana,Courier,Optima-Regular,Avenir-Roman,
+        let titleFont = [NSAttributedStringKey.font: UIFont(name: "Arial-BoldMT", size: 22.0)!]//Menlo-Bold,Verdana-Bold,Courier-Bold,Optima-Bold,
+        let msgAttrString = NSMutableAttributedString(string: alert_msg, attributes: msgFont)
+        let titleAttrString = NSMutableAttributedString(string: title1, attributes: titleFont)
+
+        alertController.addAction(imageAction)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+
+        present(alertController, animated: true, completion: nil)
+        alertController.setValue(titleAttrString, forKey: "attributedTitle")
+        alertController.setValue(msgAttrString, forKey: "attributedMessage")
+
+        alertController.view.tintColor = UIColor.black
+        alertController.view.backgroundColor = UIColor.blue
+        alertController.view.layer.cornerRadius = 40
+        
+        // change to desired number of seconds (in this case 10 seconds)
+        let when = DispatchTime.now() + 10
+        DispatchQueue.main.asyncAfter(deadline: when){
+          // your code with delay
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        
+        
+    }
+        
         
         
         
