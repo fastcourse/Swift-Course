@@ -55,6 +55,7 @@ override func viewDidLoad() {
         }    
         let msgFont = [NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 22.0)!]
         let titleFont = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 22.0)!]
+        //fontnames : https://github.com/lionhylra/iOS-UIFont-Names
         let msgAttrString = NSMutableAttributedString(string: alert_msg, attributes: msgFont)
         let titleAttrString = NSMutableAttributedString(string: title1, attributes: titleFont)
         let alertViewPadding: CGFloat = 65.0 //Adjust this as per your need
@@ -72,7 +73,7 @@ override func viewDidLoad() {
                 alert.addAction(deleteButton)
                 alert.addAction(cancelButton)
                 self.present(alert, animated: true, completion: nil)
-                alert.setValue(titleAttrString, forKey: "attributedMessage")
+                alert.setValue(titleAttrString, forKey: "attributedTitle")
                 alert.setValue(msgAttrString, forKey: "attributedMessage")
         
                alert.view.tintColor = UIColor.black
