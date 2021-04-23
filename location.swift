@@ -13,6 +13,11 @@ import AudioToolbox //vibration
 
 class Map_Dxxx_Sxxx: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate, AVAudioPlayerDelegate {
   
+      override func viewDidLoad() {
+        super.viewDidLoad()
+        foreGround = true
+        
+      }
 
 override func viewDidDisappear(_ animated: Bool) {
         foreGround = false
