@@ -65,7 +65,7 @@ override func viewWillDisappear(_ animated: Bool) {
         self.mylon = String(locValue.longitude)
         self.d_lat=mylat
         self.d_lon=mylon
-        print("mylat in Map_DriverSymbol", mylat)
+        print("mylat in welcomex", mylat)
         
     }
 
