@@ -200,3 +200,39 @@ func Show_nafida_for_msgs(x: Int){
                alert.view.layer.cornerRadius = 40
     } 
       
+// alert with 2 textfields as login username and password :
+@IBAction func loginAlert(_ sender: UIButton) {
+        
+        /*Alert with title, message, action buttons
+        Information of parameters used:
+        title: text title of the alert
+        message: text meassage of the alert
+        prefferedStyle: there are two types:
+        1 .alert appears in the middle of screen
+        2) .actionSheet appears from bottom of screen*/
+        let alert = UIAlertController(title: "Login", message: "Enter your Email & Password", preferredStyle: .alert)
+
+        //add textFields in alert
+        alert.addTextField()
+        alert.addTextField()
+        //set properties of textFields like hint and input type of textFields
+        alert.textFields![0].placeholder = "Enter Email"
+        alert.textFields![0].keyboardType = UIKeyboardType.emailAddress
+        alert.textFields![1].placeholder = "Enter Password"
+        alert.textFields![1].isSecureTextEntry = true
+        //add action buttons e.g. Save, Cancel
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
+        print("Canceled...") //show on log
+        }))
+        alert.addAction(UIAlertAction(title: "Login", style: .default, handler: {(action) in
+        //get text from textFields on alert
+        let emailText = alert.textFields![0].text
+        let passwText = alert.textFields![1].text
+        //set to textView
+       self.outputTextView.text = "Email: \(emailText ?? "") \nPassword: \(passwText ?? "")"
+            
+        }))
+
+        //show alert
+        self.present(alert, animated: true)
+    }
