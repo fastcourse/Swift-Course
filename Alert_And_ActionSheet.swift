@@ -236,3 +236,8 @@ func Show_nafida_for_msgs(x: Int){
         //show alert
         self.present(alert, animated: true)
     }
+
+
+// alert with colored textfields , fontsize
+//https://code.tutsplus.com/tutorials/create-a-custom-alert-controller-in-ios-10-swift-3--cms-27589
+
