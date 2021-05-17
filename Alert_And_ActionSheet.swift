@@ -237,6 +237,38 @@ func Show_nafida_for_msgs(x: Int){
         self.present(alert, animated: true)
     }
 
+// here are more Alerts
+https://stackoverflow.com/questions/48555399/how-to-change-uialertaction-font-or-show-uialertactionstyle-cancel-style-actionb
+//Create alertController
+let alert = UIAlertController(title: "title", message: "message", preferredStyle: .alert)
+
+//Create and add the Confirm action
+let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: { (action) -> Void in
+    //Do Something here...
+})
+//we can add logo icon on the left for example:
+let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 40, height: 40))
+imageView.image = UIImage(named: "user_48x_01")
+alert.view.addSubview(imageView)
+
+
+
+alert.addAction(confirmAction)
+
+//Create and add the Cancel action
+let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+
+    //Do Something here...
+})
+alert.addAction(cancelAction)
+
+// Set Preferred Action method
+alert.preferredAction = confirmAction // so we can change the btns styles
+
+self.present(alert, animated: true, completion: nil)
+
+
+
 
 // alert with colored textfields , fontsize
 //https://code.tutsplus.com/tutorials/create-a-custom-alert-controller-in-ios-10-swift-3--cms-27589
