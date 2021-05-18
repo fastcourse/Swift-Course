@@ -218,8 +218,8 @@ func Show_nafida_for_msgs(x: Int){
         //set properties of textFields like hint and input type of textFields
         alert.textFields![0].placeholder = "Enter Email"
         alert.textFields![0].keyboardType = UIKeyboardType.emailAddress
-  alert.textFields![0].font = UIFont(name: "Avenir", size: 22)
-  alert.textFields![0].textAlignment = NSTextAlignment.center
+        alert.textFields![0].font = UIFont(name: "Avenir", size: 22)
+        alert.textFields![0].textAlignment = NSTextAlignment.center
         alert.textFields![1].placeholder = "Enter Password"
         alert.textFields![1].isSecureTextEntry = true
         //add action buttons e.g. Save, Cancel
